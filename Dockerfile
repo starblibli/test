@@ -12,5 +12,5 @@ RUN wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-k
 #RUN curl -O -k https://www.postgresql.org/media/keys/ACCC4CF8.asc
 #RUN apt-key add ACCC4CF8.asc
 #RUN sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list
-RUN apt-get update
+#RUN apt-get update
 RUN apt-get -y install pgpool2 libpgpool2 postgresql-13-pgpool2
