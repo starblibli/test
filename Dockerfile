@@ -5,7 +5,7 @@ RUN yum install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x
 RUN yum install -y postgresql14-server
 
 RUN yum install -y vim && yum install -y net-tools && yum install -y curl
-RUN yum install -y iputils-ping && yum install -y iputils-arping && yum install -y ifupdown && yum install -y iproute2
+#RUN yum install -y iputils-ping && yum install -y iputils-arping && yum install -y ifupdown && yum install -y iproute2
 #RUN yum install -y lsb-release
 #RUN yum install -y wget
 #RUN yum install -y gnupg2
