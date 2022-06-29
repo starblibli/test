@@ -1,17 +1,16 @@
-From ubuntu:20.04
-#RUN sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list
-RUN apt update
-RUN apt-get install -y vim
-RUN apt-get install -y net-tools
-RUN apt-get install -y curl
-RUN apt-get install -y iputils-ping
-RUN apt-get install -y lsb-release
-RUN apt-get install -y wget
-RUN apt-get install -y gnupg2
-RUN sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
-RUN wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
-#RUN curl -O -k https://www.postgresql.org/media/keys/ACCC4CF8.asc
-#RUN apt-key add ACCC4CF8.asc
-#RUN sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list
-RUN apt-get update
-RUN DEBIAN_FRONTEND=noninteractive apt-get -y install pgpool2 libpgpool2 postgresql-13-pgpool2
+FROM centos
+
+RUN yum install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm
+
+RUN yum install -y postgresql14-server
+
+RUN yum install -y vim && yum install -y net-tools && yum install -y curl
+RUN yum install -y iputils-ping && yum install -y iputils-arping && yum install -y ifupdown && yum install -y iproute2
+#RUN yum install -y lsb-release
+#RUN yum install -y wget
+#RUN yum install -y gnupg2
+#RUN yum install -y openssh-server
+#RUN sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
+#RUN wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
+#RUN apt-get update
+#RUN DEBIAN_FRONTEND=noninteractive apt-get -y install pgpool2 libpgpool2 postgresql-13-pgpool2
