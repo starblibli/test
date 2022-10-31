@@ -4,8 +4,8 @@ ARG TZ="Asia/Shanghai"
 
 ENV TZ ${TZ}
 
-COPY ./keepalived/  /etc/keepalived
-COPY ./docker-entrypoint-n.sh /
+COPY keepalived  /etc/keepalived
+COPY docker-entrypoint-n.sh /
 
 RUN apt-get update
 
